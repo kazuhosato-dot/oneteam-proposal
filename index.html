@@ -32,17 +32,6 @@
 </head>
 <body class="antialiased flex flex-col md:flex-row min-h-screen">
 
-    <!-- Chosen Palette: Warm Neutrals with Teal Accents (Trust, Medical, Calm) -->
-    <!-- Application Structure Plan: A scroll-spy dashboard architecture. Chose this over a traditional multi-page slide deck because it allows decision-makers to seamlessly scroll through the narrative (Current state -> Market -> SEO -> Strategy) while retaining context. The sticky sidebar provides immediate orientation. Interactive charts and expandable cards prevent information overload while keeping detailed data accessible. -->
-    <!-- Visualization & Content Choices:
-        1. Radar Chart (Chart.js): Goal: Compare current site vs ideal state. Interaction: Hover. Justification: Quickly highlights the "content" and "SEO" gaps.
-        2. Horizontal Bar Chart (Chart.js): Goal: Show recruiting difficulty (job opening ratios). Justification: Bar charts are best for comparing values across categories.
-        3. Doughnut Chart (Chart.js): Goal: Show what candidates value. Justification: Good for proportional data.
-        4. Bar Chart (Chart.js): Goal: Display SEO keyword volumes. Justification: Clearly shows the long-tail opportunity.
-        5. Interactive Accordions (HTML/JS): Goal: Organize competitor features. Interaction: Click to expand. Justification: Keeps UI clean while allowing deep dives into competitor analysis.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-
     <nav class="w-full md:w-64 bg-white border-r border-base-100 flex-shrink-0 z-50 sticky top-0 md:h-screen md:overflow-y-auto shadow-sm">
         <div class="p-6">
             <h1 class="text-xl font-bold text-brand-900 leading-tight">ONETEAM<br><span class="text-sm font-normal text-base-800">HPリニューアル提案書</span></h1>
@@ -53,7 +42,6 @@
             <li><a href="#market" class="block py-3 px-6 border-l-4 border-transparent hover:bg-base-50 whitespace-nowrap md:whitespace-normal nav-item">3. 採用市場・競合</a></li>
             <li><a href="#seo" class="block py-3 px-6 border-l-4 border-transparent hover:bg-base-50 whitespace-nowrap md:whitespace-normal nav-item">4. さらなる成長余地</a></li>
             <li><a href="#strategy" class="block py-3 px-6 border-l-4 border-transparent hover:bg-base-50 whitespace-nowrap md:whitespace-normal nav-item">5. リニューアル提言</a></li>
-            <li><a href="#ai-tools" class="block py-3 px-6 border-l-4 border-transparent hover:bg-base-50 whitespace-nowrap md:whitespace-normal nav-item">6. AI戦略ツール ✨</a></li>
         </ul>
     </nav>
 
@@ -64,7 +52,6 @@
             <p class="text-base-800 mb-8 leading-relaxed">
                 本セクションでは、ONETEAM訪問看護ステーション鹿島田が持つ魅力をさらに引き出し、採用強化・リブランディングを飛躍させるための最重要ポイントを概観します。詳細なデータは後続のセクションで展開されます。
             </p>
-            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="glass-panel p-6 rounded-xl border-t-4 border-green-400">
                     <div class="text-3xl mb-2">🌱</div>
@@ -89,7 +76,6 @@
             <p class="text-base-800 mb-8 leading-relaxed">
                 既存サイトの現状を、SEO、UI/UX、採用導線の観点から評価します。現在のポテンシャルと、さらに強化することで高い効果が見込める要素を可視化します。
             </p>
-
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 <div class="glass-panel p-6 rounded-xl">
                     <h3 class="font-bold text-center mb-4 text-base-800">サイト健全性レーダーチャート (現状 vs 理想)</h3>
@@ -97,7 +83,6 @@
                         <canvas id="radarChart"></canvas>
                     </div>
                 </div>
-                
                 <div class="space-y-6">
                     <div class="p-5 bg-white rounded-lg shadow-sm border border-base-100">
                         <h4 class="font-bold text-brand-600 mb-2">SEO・技術面での伸びしろ</h4>
@@ -124,7 +109,6 @@
             <p class="text-base-800 mb-8 leading-relaxed">
                 川崎・横浜エリアの訪問看護採用市場は活発に動いています。データに基づく求職者のニーズと、周辺競合の採用サイトの素晴らしい工夫を分析し、自社の差別化に活かします。
             </p>
-
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
                 <div class="glass-panel p-6 rounded-xl">
                     <h3 class="font-bold text-center mb-4 text-base-800">神奈川県 職種別有効求人倍率 (推計)</h3>
@@ -140,11 +124,8 @@
                     </div>
                 </div>
             </div>
-
             <h3 class="text-xl font-bold text-brand-900 mb-4">川崎・横浜エリア 競合採用サイトの参考ポイント分析</h3>
-            <div class="space-y-3" id="competitor-list">
-            </div>
-
+            <div class="space-y-3" id="competitor-list"></div>
         </section>
 
         <section id="seo" class="mb-20 scroll-mt-10">
@@ -152,7 +133,6 @@
             <p class="text-base-800 mb-8 leading-relaxed">
                 現在の洗練された名刺代わりのHPから、「集客・採用の強力な資産」へと飛躍させるためのキーワード戦略と、コンテンツ構成の成功事例をご提案します。
             </p>
-
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div class="glass-panel p-6 rounded-xl">
                     <h3 class="font-bold text-center mb-4 text-base-800">ターゲットキーワード 月間検索ボリューム予測</h3>
@@ -160,7 +140,6 @@
                         <canvas id="seoChart"></canvas>
                     </div>
                 </div>
-                
                 <div class="flex flex-col justify-center space-y-6">
                     <div class="border-l-4 border-brand-500 pl-4">
                         <h4 class="font-bold text-lg">SEOコンテンツ施策の方向性</h4>
@@ -185,7 +164,6 @@
             <p class="text-base-800 mb-8 leading-relaxed">
                 これまでの調査を統合し、ONETEAM訪問看護ステーションの魅力を最大限に届けるため、具体的なアクションプランをご提案します。
             </p>
-
             <div class="mb-10 bg-white p-6 rounded-xl shadow-sm border border-brand-100">
                 <h3 class="text-xl font-bold text-brand-900 mb-4 border-b pb-2">さらなる飛躍に向けたページ構成案（おすすめの優先度順）</h3>
                 <div class="space-y-4">
@@ -219,7 +197,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="glass-panel p-6 rounded-xl mb-10 border-l-4 border-brand-500">
                 <h3 class="text-xl font-bold text-brand-900 mb-3">より柔軟で拡張性の高いCMS（システム）への移行</h3>
                 <p class="text-sm text-base-800 leading-relaxed mb-4">
@@ -231,7 +208,6 @@
                     <li>自社内で「スタッフブログ」や「お知らせ」を簡単に更新・追加でき、情報発信の頻度をスムーズに上げられる。</li>
                 </ul>
             </div>
-            
             <div class="bg-brand-50 p-6 rounded-xl">
                 <h3 class="font-bold text-lg mb-2">求人媒体とのハイブリッド戦略で相乗効果を</h3>
                 <p class="text-sm leading-relaxed">
@@ -240,72 +216,10 @@
                     というスムーズな流れを設計することで、よりステーションにマッチした素晴らしい人材の採用に繋がります。
                 </p>
             </div>
-
-        </section>
-
-        <section id="ai-tools" class="mb-20 scroll-mt-10">
-            <h2 class="text-3xl font-bold text-brand-900 mb-6 border-b-2 border-brand-500 pb-2 inline-block">6. AI戦略ツール ✨</h2>
-            <p class="text-base-800 mb-8 leading-relaxed">
-                リニューアルに向けた具体的なアイデア出しを、Gemini AIがサポートします。ステーションの強みやターゲットに合わせて、採用キャッチコピーやSEO記事のアイデアをその場で生成できます。
-            </p>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <!-- AI Tool 1: Catchphrase -->
-                <div class="glass-panel p-6 rounded-xl border-t-4 border-brand-500">
-                    <h3 class="font-bold text-lg mb-4">✨ 採用キャッチコピー生成</h3>
-                    <p class="text-sm text-gray-600 mb-4">ステーションの強みを選択してください（複数可）。AIが魅力的なキャッチコピーを提案します。</p>
-                    
-                    <div class="flex flex-wrap gap-2 mb-4" id="strength-checkboxes">
-                        <label class="inline-flex items-center bg-base-50 border border-base-200 px-3 py-1.5 rounded cursor-pointer hover:bg-brand-50">
-                            <input type="checkbox" value="アットホームな人間関係" class="mr-2 text-brand-500 focus:ring-brand-500 rounded"> <span class="text-sm">アットホーム</span>
-                        </label>
-                        <label class="inline-flex items-center bg-base-50 border border-base-200 px-3 py-1.5 rounded cursor-pointer hover:bg-brand-50">
-                            <input type="checkbox" value="充実した教育体制と研修" class="mr-2 text-brand-500 focus:ring-brand-500 rounded"> <span class="text-sm">充実の教育・研修</span>
-                        </label>
-                        <label class="inline-flex items-center bg-base-50 border border-base-200 px-3 py-1.5 rounded cursor-pointer hover:bg-brand-50">
-                            <input type="checkbox" value="残業なし・ワークライフバランス重視" class="mr-2 text-brand-500 focus:ring-brand-500 rounded"> <span class="text-sm">残業なし・WLB</span>
-                        </label>
-                        <label class="inline-flex items-center bg-base-50 border border-base-200 px-3 py-1.5 rounded cursor-pointer hover:bg-brand-50">
-                            <input type="checkbox" value="多職種連携がスムーズ" class="mr-2 text-brand-500 focus:ring-brand-500 rounded"> <span class="text-sm">多職種連携</span>
-                        </label>
-                        <label class="inline-flex items-center bg-base-50 border border-base-200 px-3 py-1.5 rounded cursor-pointer hover:bg-brand-50">
-                            <input type="checkbox" value="高給与・手当充実" class="mr-2 text-brand-500 focus:ring-brand-500 rounded"> <span class="text-sm">高給与・好待遇</span>
-                        </label>
-                    </div>
-                    
-                    <button onclick="generateCatchphrase()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 px-4 rounded transition-colors flex justify-center items-center">
-                        ✨ キャッチコピーを生成
-                    </button>
-                    
-                    <div id="catchphrase-output" class="mt-4 p-4 bg-brand-50 rounded hidden border border-brand-100 text-sm whitespace-pre-wrap leading-relaxed"></div>
-                </div>
-
-                <!-- AI Tool 2: SEO Blog Idea -->
-                <div class="glass-panel p-6 rounded-xl border-t-4 border-blue-400">
-                    <h3 class="font-bold text-lg mb-4">✨ SEOブログ記事アイデア生成</h3>
-                    <p class="text-sm text-gray-600 mb-4">アプローチしたいターゲット層を入力すると、検索流入を狙えるブログ記事の企画案をAIが作成します。</p>
-                    
-                    <div class="mb-4">
-                        <label class="block text-sm font-bold text-gray-700 mb-1">ターゲット層</label>
-                        <select id="target-audience" class="w-full bg-base-50 border border-base-200 text-gray-700 py-2 px-3 rounded focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-sm">
-                            <option value="転職を検討している20代〜30代の看護師">転職を検討している20代〜30代の看護師</option>
-                            <option value="訪問看護への転職に不安がある病棟経験のみの看護師">訪問看護に不安がある病棟経験のみの看護師</option>
-                            <option value="在宅でのリハビリを検討している患者の家族">在宅でのリハビリを検討している患者の家族</option>
-                            <option value="地域のケアマネージャー">地域のケアマネージャー</option>
-                        </select>
-                    </div>
-
-                    <button onclick="generateBlogIdeas()" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors flex justify-center items-center">
-                        ✨ 記事アイデアを生成
-                    </button>
-                    
-                    <div id="blog-idea-output" class="mt-4 p-4 bg-blue-50 rounded hidden border border-blue-100 text-sm whitespace-pre-wrap leading-relaxed"></div>
-                </div>
-            </div>
         </section>
 
         <footer class="mt-20 pt-10 border-t border-base-200 text-sm text-gray-500">
-            <h4 class="font-bold mb-2">6. 参考データ・参照元</h4>
+            <h4 class="font-bold mb-2">参考データ・参照元</h4>
             <ul class="list-disc pl-5 space-y-1">
                 <li>厚生労働省 神奈川労働局「職業別有効求人倍率」</li>
                 <li>各社求人ポータルサイト 訪問看護ステーション 採用動向調査レポート</li>
@@ -317,296 +231,118 @@
     </main>
 
     <script>
-        // Data Storage
         const competitorData = [
             {
                 name: "Aステーション (川崎市幸区)",
-                url: "非公開",
                 points: ["1日の密着スケジュール動画あり", "給与テーブルの明確な提示", "教育担当者からのメッセージ"],
                 evaluation: "デザイン面での伸びしろはあるものの、求職者が知りたい「リアルな情報」を積極的に開示しており、採用力強化の良い参考になります。"
             },
             {
                 name: "B訪問看護 (川崎区 / 大手系列)",
-                url: "非公開",
                 points: ["福利厚生のわかりやすい図解", "キャリアパスごとの年収例", "スタイリッシュなデザイン"],
                 evaluation: "ブランド力と安心感を前面に押し出す見せ方が上手です。写真のクオリティが高く、信頼感の醸成に成功しています。"
             },
             {
                 name: "Cステーション (横浜市鶴見区)",
-                url: "非公開",
                 points: ["代表の熱い想いを伝える動画", "スタッフの座談会記事", "Instagramとのスムーズな連携"],
                 evaluation: "人間関係の良さやアットホームさを伝えることに特化しており、定着率の良さをうまくアピールできている素晴らしい事例です。"
             }
         ];
 
-        // Core Interaction & DOM Ready
         document.addEventListener('DOMContentLoaded', () => {
             initNavigation();
             initCharts();
             initCompetitorAccordion();
         });
 
-        // Scroll Spy Navigation
         function initNavigation() {
             const sections = document.querySelectorAll('section');
             const navItems = document.querySelectorAll('.nav-item');
-
             window.addEventListener('scroll', () => {
                 let current = '';
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (scrollY >= (sectionTop - 150)) {
-                        current = section.getAttribute('id');
-                    }
+                    if (scrollY >= (section.offsetTop - 150)) current = section.getAttribute('id');
                 });
-
                 navItems.forEach(item => {
                     item.classList.remove('nav-active');
-                    if (item.getAttribute('href').includes(current)) {
-                        item.classList.add('nav-active');
-                    }
+                    if (item.getAttribute('href').includes(current)) item.classList.add('nav-active');
                 });
             });
         }
 
-        // Initialize Chart.js
         function initCharts() {
-            // Common Options
             Chart.defaults.font.family = "'Noto Sans JP', sans-serif";
             Chart.defaults.color = '#57534e';
 
-            // 1. Radar Chart (Current vs Ideal)
             new Chart(document.getElementById('radarChart'), {
                 type: 'radar',
                 data: {
                     labels: ['SEO最適化度', 'UI/UXの魅力度', 'モバイル快適性', 'コンテンツ充実度', '採用導線のスムーズさ'],
-                    datasets: [{
-                        label: '現状のポテンシャル',
-                        data: [30, 40, 50, 20, 30],
-                        backgroundColor: 'rgba(234, 179, 8, 0.2)', // Yellow
-                        borderColor: 'rgba(234, 179, 8, 1)',
-                        borderWidth: 2
-                    }, {
-                        label: 'リニューアル後(目標)',
-                        data: [90, 85, 95, 80, 90],
-                        backgroundColor: 'rgba(13, 148, 136, 0.2)', // Teal
-                        borderColor: 'rgba(13, 148, 136, 1)',
-                        borderWidth: 2
-                    }]
+                    datasets: [
+                        { label: '現状のポテンシャル', data: [30, 40, 50, 20, 30], backgroundColor: 'rgba(234, 179, 8, 0.2)', borderColor: 'rgba(234, 179, 8, 1)', borderWidth: 2 },
+                        { label: 'リニューアル後(目標)', data: [90, 85, 95, 80, 90], backgroundColor: 'rgba(13, 148, 136, 0.2)', borderColor: 'rgba(13, 148, 136, 1)', borderWidth: 2 }
+                    ]
                 },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    scales: { r: { angleLines: { display: true }, suggestedMin: 0, suggestedMax: 100 } }
-                }
+                options: { responsive: true, maintainAspectRatio: false, scales: { r: { suggestedMin: 0, suggestedMax: 100 } } }
             });
 
-            // 2. Bar Chart (Job Market)
             new Chart(document.getElementById('barChartJobs'), {
                 type: 'bar',
                 data: {
                     labels: ['看護師', '理学療法士(PT)', '作業療法士(OT)', '全職業平均'],
-                    datasets: [{
-                        label: '有効求人倍率 (倍)',
-                        data: [2.54, 3.12, 2.98, 1.15],
-                        backgroundColor: ['#0d9488', '#14b8a6', '#2dd4bf', '#d6d3d1'],
-                        borderRadius: 4
-                    }]
+                    datasets: [{ label: '有効求人倍率 (倍)', data: [2.54, 3.12, 2.98, 1.15], backgroundColor: ['#0d9488', '#14b8a6', '#2dd4bf', '#d6d3d1'], borderRadius: 4 }]
                 },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: { y: { beginAtZero: true, title: { display: true, text: '倍率' } } }
-                }
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
             });
 
-            // 3. Doughnut Chart (Needs)
             new Chart(document.getElementById('doughnutChartNeeds'), {
                 type: 'doughnut',
                 data: {
                     labels: ['職場の雰囲気・人間関係', '給与・待遇', 'ワークライフバランス', '教育体制', 'その他'],
-                    datasets: [{
-                        data: [35, 25, 20, 15, 5],
-                        backgroundColor: ['#0d9488', '#f59e0b', '#3b82f6', '#ec4899', '#d6d3d1'],
-                        borderWidth: 0
-                    }]
+                    datasets: [{ data: [35, 25, 20, 15, 5], backgroundColor: ['#0d9488', '#f59e0b', '#3b82f6', '#ec4899', '#d6d3d1'], borderWidth: 0 }]
                 },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    cutout: '60%',
-                    plugins: { legend: { position: 'right' } }
-                }
+                options: { responsive: true, maintainAspectRatio: false, cutout: '60%', plugins: { legend: { position: 'right' } } }
             });
 
-            // 4. Bar Chart (SEO)
             new Chart(document.getElementById('seoChart'), {
                 type: 'bar',
                 data: {
                     labels: ['川崎 訪問看護', '幸区 訪問看護', '川崎 訪問リハビリ', '訪問看護 採用 川崎', '訪問看護 鹿島田'],
-                    datasets: [{
-                        label: '推定月間検索数',
-                        data: [1200, 320, 450, 180, 90],
-                        backgroundColor: 'rgba(13, 148, 136, 0.8)',
-                        borderRadius: 4
-                    }]
+                    datasets: [{ label: '推定月間検索数', data: [1200, 320, 450, 180, 90], backgroundColor: 'rgba(13, 148, 136, 0.8)', borderRadius: 4 }]
                 },
-                options: {
-                    responsive: true, maintainAspectRatio: false,
-                    indexAxis: 'y', // Horizontal bar for better label reading
-                    plugins: { legend: { display: false } },
-                    scales: { x: { beginAtZero: true } }
-                }
+                options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { beginAtZero: true } } }
             });
         }
 
-        // Build Interactive Competitor Accordion
         function initCompetitorAccordion() {
             const container = document.getElementById('competitor-list');
-            
             competitorData.forEach((comp, index) => {
-                const itemHtml = `
+                container.insertAdjacentHTML('beforeend', `
                     <div class="border border-base-200 rounded bg-white overflow-hidden">
-                        <button class="w-full px-5 py-4 text-left font-bold bg-base-50 hover:bg-base-100 flex justify-between items-center focus:outline-none transition-colors" onclick="toggleAccordion(${index})">
+                        <button class="w-full px-5 py-4 text-left font-bold bg-base-50 hover:bg-base-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(${index})">
                             <span>🏥 ${comp.name}</span>
-                            <span class="text-xl transition-transform" id="icon-${index}">+</span>
+                            <span class="text-xl" id="icon-${index}">+</span>
                         </button>
                         <div class="accordion-content bg-white" id="content-${index}">
                             <div class="py-3">
                                 <p class="text-sm text-gray-700 mb-3"><strong>参考になるコンテンツ:</strong></p>
-                                <ul class="list-disc pl-5 text-sm mb-3 space-y-1">
-                                    ${comp.points.map(p => `<li>${p}</li>`).join('')}
-                                </ul>
+                                <ul class="list-disc pl-5 text-sm mb-3 space-y-1">${comp.points.map(p => `<li>${p}</li>`).join('')}</ul>
                                 <p class="text-sm bg-teal-50 p-3 rounded border border-teal-100"><strong>分析コメント:</strong><br>${comp.evaluation}</p>
                             </div>
                         </div>
                     </div>
-                `;
-                container.insertAdjacentHTML('beforeend', itemHtml);
+                `);
             });
         }
 
-        // Toggle Accordion function (Global scope for inline onclick)
         window.toggleAccordion = function(index) {
             const content = document.getElementById(`content-${index}`);
             const icon = document.getElementById(`icon-${index}`);
-            
-            if (content.classList.contains('open')) {
-                content.classList.remove('open');
-                icon.textContent = '+';
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                // Close others (optional, keeps it clean)
-                document.querySelectorAll('.accordion-content').forEach(el => el.classList.remove('open'));
-                document.querySelectorAll('[id^="icon"]').forEach(el => { el.textContent = '+'; el.style.transform = 'rotate(0deg)'; });
-                
-                content.classList.add('open');
-                icon.textContent = '-';
-                icon.style.transform = 'rotate(180deg)';
-            }
+            const isOpen = content.classList.contains('open');
+            document.querySelectorAll('.accordion-content').forEach(el => el.classList.remove('open'));
+            document.querySelectorAll('[id^="icon"]').forEach(el => el.textContent = '+');
+            if (!isOpen) { content.classList.add('open'); icon.textContent = '-'; }
         };
-
-        // --- Gemini API Integrations ✨ ---
-        const apiKey = "";
-        const geminiEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-
-        async function fetchWithBackoff(url, options, maxRetries = 5) {
-            let retries = 0;
-            const baseDelay = 1000;
-            
-            while (retries < maxRetries) {
-                try {
-                    const response = await fetch(url, options);
-                    if (!response.ok) {
-                        const errorData = await response.json().catch(() => ({}));
-                        throw new Error(`API Error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
-                    }
-                    return await response.json();
-                } catch (error) {
-                    retries++;
-                    if (retries >= maxRetries) {
-                        throw error;
-                    }
-                    const delay = baseDelay * Math.pow(2, retries - 1);
-                    await new Promise(resolve => setTimeout(resolve, delay));
-                }
-            }
-        }
-
-        async function callGemini(prompt, outputElementId, loadingMessage = "✨ AIが生成中...") {
-            const outputEl = document.getElementById(outputElementId);
-            outputEl.classList.remove('hidden');
-            outputEl.innerHTML = `<div class="flex items-center text-brand-600"><svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>${loadingMessage}</div>`;
-
-            try {
-                const data = await fetchWithBackoff(geminiEndpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: prompt }] }],
-                        generationConfig: { temperature: 0.7 }
-                    })
-                });
-
-                const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                if (text) {
-                    outputEl.innerHTML = text.replace(/\n/g, '<br>');
-                } else {
-                    outputEl.innerHTML = "生成に失敗しました。";
-                }
-            } catch (error) {
-                outputEl.innerHTML = `<span class="text-red-500">エラーが発生しました: 再試行してください。<br><small>${error.message}</small></span>`;
-            }
-        }
-
-        function generateCatchphrase() {
-            const checkboxes = document.querySelectorAll('#strength-checkboxes input:checked');
-            const strengths = Array.from(checkboxes).map(cb => cb.value).join('、');
-            
-            if (!strengths) {
-                const outputEl = document.getElementById('catchphrase-output');
-                outputEl.classList.remove('hidden');
-                outputEl.innerHTML = '<span class="text-red-500">強みを1つ以上選択してください。</span>';
-                return;
-            }
-
-            const prompt = `あなたは訪問看護ステーションの採用ブランディングのプロです。以下の強みを持つステーション向けの、求職者（看護師・療法士）の心に刺さる魅力的な採用キャッチコピーを3つ提案してください。その後、そのキャッチコピー群全体を通した「採用コンセプト」を100文字程度で解説してください。
-            
-【ステーションの強み】
-${strengths}
-
-出力形式：
-【キャッチコピー案】
-1. ...
-2. ...
-3. ...
-
-【採用コンセプト解説】
-...`;
-
-            callGemini(prompt, 'catchphrase-output', '✨ キャッチコピーを考案中...');
-        }
-
-        function generateBlogIdeas() {
-            const target = document.getElementById('target-audience').value;
-            const prompt = `あなたは訪問看護ステーションの優秀なSEOマーケターです。ステーションのHPで発信するブログ記事の企画を立ててください。
-ターゲット層「${target}」が検索しそうで、かつステーションへの信頼感や応募/問い合わせに繋がるようなブログ記事のタイトル案を3つと、それぞれの簡単な見出し構成（H2レベルで3つ程度）を出力してください。
-
-出力形式：
-💡 記事アイデア 1
-タイトル：...
-見出し構成：
-- ...
-- ...
-- ...
-
-💡 記事アイデア 2
-...（同様に）
-
-💡 記事アイデア 3
-...（同様に）`;
-
-            callGemini(prompt, 'blog-idea-output', '✨ 記事アイデアを企画中...');
-        }
     </script>
 </body>
 </html>
