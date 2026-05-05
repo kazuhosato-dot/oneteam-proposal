@@ -1,348 +1,409 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONETEAM訪問看護ステーション HPリニューアル調査報告書</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['"Noto Sans JP"', 'sans-serif'] },
-                    colors: {
-                        brand: { 50: '#f0fdfa', 100: '#ccfbf1', 500: '#14b8a6', 600: '#0d9488', 900: '#134e4a' },
-                        base: { 50: '#fafaf9', 100: '#f5f5f4', 800: '#292524', 900: '#1c1917' }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { font-family: 'Noto Sans JP', sans-serif; background-color: #fafaf9; color: #292524; scroll-behavior: smooth; }
-        .chart-container { position: relative; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
-        @media (max-width: 640px) { .chart-container { height: 280px; } }
-        .glass-panel { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
-        .nav-active { border-left-color: #0d9488; color: #0d9488; font-weight: 700; background-color: #f0fdfa; }
-        .accordion-content { transition: max-height 0.3s ease-out, padding 0.3s ease; max-height: 0; overflow: hidden; padding: 0 1rem; }
-        .accordion-content.open { max-height: 500px; padding: 1rem; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONETEAM訪問看護 HP改善提案レポート</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root {
+  --teal:    #0a9e8a;
+  --teal-lt: #e0f7f4;
+  --teal-dk: #065f52;
+  --warm:    #f7f3ee;
+  --warm2:   #efe9e0;
+  --ink:     #1e1a17;
+  --muted:   #6b6460;
+  --accent:  #e8813a;
+  --accent-lt: #fef0e6;
+  --yellow:  #f5c842;
+  --blue:    #3b7de8;
+  --blue-lt: #eef3fd;
+  --white:   #ffffff;
+  --radius:  16px;
+  --shadow:  0 4px 24px rgba(0,0,0,0.07);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Zen Kaku Gothic New',sans-serif;background:var(--warm);color:var(--ink);line-height:1.7;min-height:100vh;}
+.layout{display:flex;min-height:100vh;}
+nav{width:240px;flex-shrink:0;background:var(--white);border-right:1px solid var(--warm2);position:sticky;top:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column;}
+.nav-logo{padding:28px 24px 20px;border-bottom:1px solid var(--warm2);}
+.nav-logo .brand{font-size:18px;font-weight:900;color:var(--teal-dk);letter-spacing:-0.02em;}
+.nav-logo .sub{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.6;}
+.nav-list{list-style:none;padding:16px 0;flex:1;}
+.nav-list li a{display:flex;align-items:center;gap:10px;padding:12px 24px;text-decoration:none;color:var(--muted);font-size:13px;font-weight:500;transition:all .2s;border-left:3px solid transparent;}
+.nav-list li a:hover{color:var(--teal);background:var(--teal-lt);}
+.nav-list li a.active{color:var(--teal);background:var(--teal-lt);border-left-color:var(--teal);font-weight:700;}
+.nav-list li a .icon{font-size:16px;width:20px;text-align:center;}
+.nav-footer{padding:16px 24px;border-top:1px solid var(--warm2);}
+.nav-footer p{font-size:11px;color:var(--muted);line-height:1.7;}
+main{flex:1;overflow-x:hidden;}
+.hero{background:linear-gradient(135deg,var(--teal-dk) 0%,var(--teal) 60%,#1ecdb5 100%);padding:72px 60px;color:white;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.06);}
+.hero::after{content:'';position:absolute;bottom:-80px;left:40%;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.04);}
+.hero-tag{display:inline-block;background:rgba(255,255,255,0.18);color:white;font-size:12px;font-weight:700;padding:5px 14px;border-radius:100px;letter-spacing:.08em;margin-bottom:20px;}
+.hero h1{font-size:clamp(24px,3vw,38px);font-weight:900;line-height:1.3;letter-spacing:-0.02em;margin-bottom:16px;}
+.hero-sub{font-size:15px;opacity:.88;max-width:520px;line-height:1.8;}
+.hero-meta{display:flex;gap:24px;margin-top:36px;flex-wrap:wrap;}
+.hero-meta-item{display:flex;flex-direction:column;}
+.hero-meta-item .label{font-size:11px;opacity:.7;letter-spacing:.06em;}
+.hero-meta-item .val{font-size:15px;font-weight:700;margin-top:2px;}
+section{padding:64px 60px;scroll-margin-top:20px;}
+section+section{border-top:1px solid var(--warm2);}
+.section-tag{display:inline-flex;align-items:center;gap:6px;background:var(--teal-lt);color:var(--teal-dk);font-size:11px;font-weight:700;padding:5px 12px;border-radius:100px;letter-spacing:.08em;margin-bottom:12px;}
+.section-title{font-size:clamp(20px,2.5vw,28px);font-weight:900;letter-spacing:-0.02em;line-height:1.25;margin-bottom:12px;}
+.section-lead{font-size:15px;color:var(--muted);max-width:620px;margin-bottom:40px;line-height:1.85;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.card{background:var(--white);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.04);}
+.card.accent-green{border-top:4px solid #4ade80;}
+.card.accent-teal{border-top:4px solid var(--teal);}
+.card.accent-orange{border-top:4px solid var(--accent);}
+.card-icon{font-size:28px;margin-bottom:14px;}
+.card-title{font-size:16px;font-weight:700;margin-bottom:8px;}
+.card-body{font-size:13.5px;color:var(--muted);line-height:1.8;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
+.chart-wrap{background:var(--white);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);}
+.chart-wrap h3{font-size:13px;font-weight:700;margin-bottom:20px;color:var(--muted);text-align:center;}
+.chart-container{position:relative;height:280px;}
+.check-list{display:flex;flex-direction:column;gap:14px;}
+.check-item{background:var(--white);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);border-left:4px solid var(--teal);}
+.check-item.warn{border-left-color:var(--accent);}
+.check-item h4{font-size:14px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.check-item p{font-size:13px;color:var(--muted);line-height:1.75;}
+.badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;letter-spacing:.04em;}
+.badge-teal{background:var(--teal-lt);color:var(--teal-dk);}
+.badge-orange{background:var(--accent-lt);color:#a0430a;}
+.comp-list{display:flex;flex-direction:column;gap:12px;}
+.comp-item{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;}
+.comp-header{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:var(--warm);font-size:14px;font-weight:700;transition:background .2s;user-select:none;}
+.comp-header:hover{background:var(--teal-lt);}
+.comp-toggle{font-size:20px;color:var(--teal);}
+.comp-body{display:none;padding:20px 24px;}
+.comp-body.open{display:block;}
+.comp-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+.comp-tag{background:var(--teal-lt);color:var(--teal-dk);font-size:12px;font-weight:600;padding:4px 12px;border-radius:100px;}
+.comp-comment{background:#f9fafb;border-radius:10px;padding:14px 16px;font-size:13px;color:var(--muted);line-height:1.75;}
+.priority-list{display:flex;flex-direction:column;gap:12px;}
+.priority-item{display:flex;gap:16px;align-items:flex-start;background:var(--white);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);}
+.priority-rank{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;}
+.rank-s{background:var(--teal-lt);color:var(--teal-dk);}
+.rank-a{background:var(--blue-lt);color:#1e4db7;}
+.rank-b{background:#fef3c7;color:#92400e;}
+.priority-content h4{font-size:15px;font-weight:700;margin-bottom:5px;}
+.priority-content p{font-size:13px;color:var(--muted);line-height:1.75;}
+.flow{display:flex;align-items:stretch;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.flow-step{flex:1;padding:28px 20px;text-align:center;position:relative;}
+.flow-step+.flow-step::before{content:'→';position:absolute;left:-14px;top:50%;transform:translateY(-50%);color:var(--teal);font-size:22px;font-weight:900;}
+.flow-step:nth-child(1){background:var(--teal-lt);}
+.flow-step:nth-child(2){background:var(--warm2);}
+.flow-step:nth-child(3){background:var(--teal-lt);}
+.flow-step .fs-icon{font-size:28px;margin-bottom:10px;}
+.flow-step .fs-label{font-size:11px;color:var(--muted);margin-bottom:4px;}
+.flow-step .fs-title{font-size:14px;font-weight:700;line-height:1.5;}
+.info-box{background:var(--white);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);border-left:5px solid var(--teal);}
+.info-box h3{font-size:17px;font-weight:700;margin-bottom:14px;}
+.info-box ul{padding-left:18px;}
+.info-box ul li{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:6px;}
+footer{background:var(--ink);color:rgba(255,255,255,0.6);padding:40px 60px;font-size:12px;}
+footer h4{color:white;font-size:13px;margin-bottom:12px;font-weight:700;}
+footer ul{list-style:disc;padding-left:18px;line-height:2.2;}
+footer .copy{margin-top:28px;text-align:center;opacity:.5;}
+@media(max-width:900px){
+  nav{display:none;}
+  .hero,section,footer{padding:40px 24px;}
+  .two-col{grid-template-columns:1fr;}
+  .flow{flex-direction:column;}
+  .flow-step+.flow-step::before{content:'↓';left:50%;top:-14px;transform:translateX(-50%);}
+}
+</style>
 </head>
-<body class="antialiased flex flex-col md:flex-row min-h-screen">
+<body>
+<div class="layout">
 
-    <nav class="w-full md:w-64 bg-white border-r border-base-100 flex-shrink-0 z-50 sticky top-0 md:h-screen md:overflow-y-auto shadow-sm">
-        <div class="p-6">
-            <h1 class="text-xl font-bold text-brand-900 leading-tight">ONETEAM<br><span class="text-sm font-normal text-base-800">HPリニューアル提案書</span></h1>
-        </div>
-        <ul class="flex md:flex-col overflow-x-auto md:overflow-x-visible hide-scrollbar text-sm md:text-base border-b md:border-b-0 border-base-100">
-            <li><a href="#summary" class="block py-3 px-6 border-l-4 border-transparent hover:bg-base-50 whitespace-nowrap md:whitespace-normal nav-item">1. サマリー</a></li>
-            <li><a href="#performance" class="block py-3 px-6 border-l-4 border-transparent hover:bg-base-50 whitespace-nowrap md:whitespace-normal nav-item">2. 現状サイトの伸びしろ</a></li>
-            <li><a href="#market" class="block py-3 px-6 border-l-4 border-transparent hover:bg-base-50 whitespace-nowrap md:whitespace-normal nav-item">3. 採用市場・競合</a></li>
-            <li><a href="#seo" class="block py-3 px-6 border-l-4 border-transparent hover:bg-base-50 whitespace-nowrap md:whitespace-normal nav-item">4. さらなる成長余地</a></li>
-            <li><a href="#strategy" class="block py-3 px-6 border-l-4 border-transparent hover:bg-base-50 whitespace-nowrap md:whitespace-normal nav-item">5. リニューアル提言</a></li>
-        </ul>
-    </nav>
+<nav>
+  <div class="nav-logo">
+    <div class="brand">ONETEAM</div>
+    <div class="sub">訪問看護ステーション<br>HP改善提案レポート</div>
+  </div>
+  <ul class="nav-list">
+    <li><a href="#summary" class="nav-item"><span class="icon">📋</span>まとめ</a></li>
+    <li><a href="#performance" class="nav-item"><span class="icon">🔍</span>現在のサイト分析</a></li>
+    <li><a href="#market" class="nav-item"><span class="icon">📊</span>採用市場・競合</a></li>
+    <li><a href="#seo" class="nav-item"><span class="icon">🌱</span>成長の可能性</a></li>
+    <li><a href="#strategy" class="nav-item"><span class="icon">🚀</span>改善の提案</a></li>
+  </ul>
+  <div class="nav-footer"><p>2026年 HP改善提案<br>作成：Ippo Sato</p></div>
+</nav>
 
-    <main class="flex-1 p-4 md:p-10 lg:p-12 overflow-x-hidden">
+<main>
 
-        <section id="summary" class="mb-20 scroll-mt-10">
-            <h2 class="text-3xl font-bold text-brand-900 mb-6 border-b-2 border-brand-500 pb-2 inline-block">1. エグゼクティブサマリー</h2>
-            <p class="text-base-800 mb-8 leading-relaxed">
-                本セクションでは、ONETEAM訪問看護ステーション鹿島田が持つ魅力をさらに引き出し、採用強化・リブランディングを飛躍させるための最重要ポイントを概観します。詳細なデータは後続のセクションで展開されます。
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-panel p-6 rounded-xl border-t-4 border-green-400">
-                    <div class="text-3xl mb-2">🌱</div>
-                    <h3 class="font-bold text-lg mb-2">現在のポテンシャルと拡充の余地</h3>
-                    <p class="text-sm text-base-800">現在はコンパクトな構成であるため、ステーションの魅力や「働くイメージ」を伝える情報を拡充する大きな伸びしろがあります。ここを強化することで、川崎エリアの求職者へ強くアピールできます。</p>
-                </div>
-                <div class="glass-panel p-6 rounded-xl border-t-4 border-brand-500">
-                    <div class="text-3xl mb-2">🚀</div>
-                    <h3 class="font-bold text-lg mb-2">サイト基盤の進化と最適化</h3>
-                    <p class="text-sm text-base-800">検索エンジンからの評価（SEO）をさらに高め、表示速度をより快適にするため、拡張性の高いCMSへの移行が推奨されます。これにより、日々の活動を自社でタイムリーに発信できる体制が整います。</p>
-                </div>
-                <div class="glass-panel p-6 rounded-xl border-t-4 border-yellow-400">
-                    <div class="text-3xl mb-2">🤝</div>
-                    <h3 class="font-bold text-lg mb-2">採用力強化のためのコンテンツ</h3>
-                    <p class="text-sm text-base-800">1日の流れやスタッフインタビューを追加することで、求職者の安心感を高めます。Instagram等と連携し、求人媒体からのアクセスを魅力的な受け皿で確実に応募へと繋げます。</p>
-                </div>
-            </div>
-        </section>
+<div class="hero">
+  <div class="hero-tag">HP リニューアル 提案レポート</div>
+  <h1>ONETEAM訪問看護ステーションの<br>ホームページをもっと強くするために</h1>
+  <p class="hero-sub">現在のウェブサイトの状況を整理し、「採用問い合わせを増やす」「ステーションの魅力をもっと伝える」ための具体的な改善案をまとめました。</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span class="label">対象エリア</span><span class="val">川崎市・横浜市</span></div>
+    <div class="hero-meta-item"><span class="label">改善の目的</span><span class="val">採用強化 ＆ リブランディング</span></div>
+    <div class="hero-meta-item"><span class="label">現在のページ数</span><span class="val">4ページ（拡充余地あり）</span></div>
+  </div>
+</div>
 
-        <section id="performance" class="mb-20 scroll-mt-10">
-            <h2 class="text-3xl font-bold text-brand-900 mb-6 border-b-2 border-brand-500 pb-2 inline-block">2. 現状サイトのパフォーマンスと伸びしろ</h2>
-            <p class="text-base-800 mb-8 leading-relaxed">
-                既存サイトの現状を、SEO、UI/UX、採用導線の観点から評価します。現在のポテンシャルと、さらに強化することで高い効果が見込める要素を可視化します。
-            </p>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                <div class="glass-panel p-6 rounded-xl">
-                    <h3 class="font-bold text-center mb-4 text-base-800">サイト健全性レーダーチャート (現状 vs 理想)</h3>
-                    <div class="chart-container">
-                        <canvas id="radarChart"></canvas>
-                    </div>
-                </div>
-                <div class="space-y-6">
-                    <div class="p-5 bg-white rounded-lg shadow-sm border border-base-100">
-                        <h4 class="font-bold text-brand-600 mb-2">SEO・技術面での伸びしろ</h4>
-                        <ul class="list-disc pl-5 text-sm space-y-1">
-                            <li><strong>構造化データの最適化:</strong> 見出しルールを整えることで、検索エンジンに対してより正確にサイトの魅力を伝えられる余地があります。</li>
-                            <li><strong>表示速度のさらなる向上:</strong> システム基盤を最適化することで、スマートフォンでの閲覧をよりスムーズで快適な体験に引き上げるポテンシャルがあります。</li>
-                            <li><strong>メタデータの個別設定:</strong> 各ページに合わせた独自のTitleやDescriptionを設定することで、検索結果からのクリック率を大きく伸ばすことが可能です。</li>
-                        </ul>
-                    </div>
-                    <div class="p-5 bg-white rounded-lg shadow-sm border border-base-100">
-                        <h4 class="font-bold text-brand-600 mb-2">コンテンツと採用導線の強化ポイント</h4>
-                        <ul class="list-disc pl-5 text-sm space-y-1">
-                            <li><strong>コンテンツの深掘り:</strong> ステーションの「理念」や「具体的な教育体制」をさらに詳しく言語化することで、求職者の共感を深く引き出すことができます。</li>
-                            <li><strong>「人」の魅力の可視化:</strong> スタッフの笑顔や職場の雰囲気を写真や動画で表現することで、求職者にさらなる安心感と親近感を提供できます。</li>
-                            <li><strong>応募導線のスムーズ化:</strong> 採用専用のわかりやすい応募フォームを設置することで、求職者が迷わずエントリーでき、応募率の飛躍的な向上が期待できます。</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section id="summary">
+  <div class="section-tag">📋 まとめ</div>
+  <h2 class="section-title">大切なポイントを3つに絞ると</h2>
+  <p class="section-lead">詳しい内容は後ろのセクションでご確認いただけます。まずはここで全体のイメージをつかんでいただければ幸いです。</p>
+  <div class="card-grid">
+    <div class="card accent-green">
+      <div class="card-icon">🌱</div>
+      <div class="card-title">①ステーションの魅力をさらに届けるチャンス</div>
+      <div class="card-body">現在4ページというコンパクトな構成の中に基本情報がしっかり整理されています。スタッフ紹介・1日の流れ・職場の雰囲気といったコンテンツを加えることで、求職者の共感をさらに深められます。</div>
+    </div>
+    <div class="card accent-teal">
+      <div class="card-icon">⚙️</div>
+      <div class="card-title">②サイトの土台をさらに強化する</div>
+      <div class="card-body">現在のWix（ウェブサイト作成ツール）で基盤はしっかり構築されています。より自由度の高い仕組みへアップグレードすることで、Google検索での露出やスマホ表示の快適さをさらに向上させられます。</div>
+    </div>
+    <div class="card accent-orange">
+      <div class="card-icon">🤝</div>
+      <div class="card-title">③「応募したい」気持ちをすぐ行動へ</div>
+      <div class="card-body">サイトを見てくれた求職者が迷わず次の一歩を踏み出せるよう、応募ボタン・フォーム・LINE連携などスムーズな導線を整えることで、問い合わせ数の増加が期待できます。</div>
+    </div>
+  </div>
+</section>
 
-        <section id="market" class="mb-20 scroll-mt-10">
-            <h2 class="text-3xl font-bold text-brand-900 mb-6 border-b-2 border-brand-500 pb-2 inline-block">3. 採用市場・競合調査</h2>
-            <p class="text-base-800 mb-8 leading-relaxed">
-                川崎・横浜エリアの訪問看護採用市場は活発に動いています。データに基づく求職者のニーズと、周辺競合の採用サイトの素晴らしい工夫を分析し、自社の差別化に活かします。
-            </p>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
-                <div class="glass-panel p-6 rounded-xl">
-                    <h3 class="font-bold text-center mb-4 text-base-800">神奈川県 職種別有効求人倍率 (推計)</h3>
-                    <div class="chart-container">
-                        <canvas id="barChartJobs"></canvas>
-                    </div>
-                    <p class="text-xs text-center mt-2 text-gray-500">※ハローワーク等のデータを基にした調査用推計値</p>
-                </div>
-                <div class="glass-panel p-6 rounded-xl">
-                    <h3 class="font-bold text-center mb-4 text-base-800">訪問看護求職者がHPで最も重視する情報</h3>
-                    <div class="chart-container">
-                        <canvas id="doughnutChartNeeds"></canvas>
-                    </div>
-                </div>
-            </div>
-            <h3 class="text-xl font-bold text-brand-900 mb-4">川崎・横浜エリア 競合採用サイトの参考ポイント分析</h3>
-            <div class="space-y-3" id="competitor-list"></div>
-        </section>
+<section id="performance">
+  <div class="section-tag">🔍 現在のサイト分析</div>
+  <h2 class="section-title">今のウェブサイト、どんな状態？</h2>
+  <p class="section-lead">「Google検索への強さ」「見やすさ」「採用につながりやすさ」などの観点から現状を確認しました。</p>
+  <div class="two-col" style="margin-bottom:40px;">
+    <div class="chart-wrap">
+      <h3>現状（黄）とリニューアル後の目標（緑）の比較</h3>
+      <div class="chart-container"><canvas id="radarChart"></canvas></div>
+    </div>
+    <div class="check-list">
+      <div class="check-item warn">
+        <h4>⚠️ <span class="badge badge-orange">強化ポイント</span> Google検索でさらに上位を狙える</h4>
+        <p>「川崎 訪問看護」などのキーワードで検索される機会を今以上に増やせる余地があります。ページタイトルや説明文を最適化することで、より多くの方にサイトを届けられます。</p>
+      </div>
+      <div class="check-item warn">
+        <h4>⚠️ <span class="badge badge-orange">強化ポイント</span> スマホ表示をさらに快適に</h4>
+        <p>求職者の多くがスマートフォンでサイトを閲覧します。表示速度を最適化することで、より快適な閲覧体験を提供でき、離脱率の低下につながります。</p>
+      </div>
+      <div class="check-item">
+        <h4>✅ <span class="badge badge-teal">良い点</span> 基本情報はしっかり掲載</h4>
+        <p>採用情報ページには給与・業務内容・福利厚生が丁寧に記載されています。この情報の「見せ方」をさらに工夫するとさらに効果的です。</p>
+      </div>
+      <div class="check-item">
+        <h4>✅ <span class="badge badge-teal">良い点</span> Instagramを運用している</h4>
+        <p>@oneteam_houkan でInstagramを運営中。この発信をHPと連動させることで、職場の雰囲気をリアルに伝えられます。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <section id="seo" class="mb-20 scroll-mt-10">
-            <h2 class="text-3xl font-bold text-brand-900 mb-6 border-b-2 border-brand-500 pb-2 inline-block">4. HPのさらなる成長余地とSEO戦略</h2>
-            <p class="text-base-800 mb-8 leading-relaxed">
-                現在の洗練された名刺代わりのHPから、「集客・採用の強力な資産」へと飛躍させるためのキーワード戦略と、コンテンツ構成の成功事例をご提案します。
-            </p>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <div class="glass-panel p-6 rounded-xl">
-                    <h3 class="font-bold text-center mb-4 text-base-800">ターゲットキーワード 月間検索ボリューム予測</h3>
-                    <div class="chart-container">
-                        <canvas id="seoChart"></canvas>
-                    </div>
-                </div>
-                <div class="flex flex-col justify-center space-y-6">
-                    <div class="border-l-4 border-brand-500 pl-4">
-                        <h4 class="font-bold text-lg">SEOコンテンツ施策の方向性</h4>
-                        <p class="text-sm mt-2 text-base-800">
-                            「川崎 訪問看護」のビッグワードは競合がひしめく中で、より効果的にアプローチするため、<strong>「エリア ＋ ニーズ」のロングテール</strong>を狙う発信が有効です。<br><br>
-                            例：「幸区 訪問リハビリ 脳梗塞」「川崎 訪問看護 小児」などの専門的な強みを伝える事例記事を継続的にアップすることで、必要としている方からの質の高いアクセスを集められます。
-                        </p>
-                    </div>
-                    <div class="border-l-4 border-brand-500 pl-4">
-                        <h4 class="font-bold text-lg">リブランディングの魅力向上</h4>
-                        <p class="text-sm mt-2 text-base-800">
-                            <strong>成功事例:</strong> ビジュアルを「病院的」なものから、「温かみ・生活・伴走」を感じるトーン（イラスト活用、スタッフの笑顔の自然な写真）へ進化させることで、より親しみやすさが増します。<br><br>
-                            <strong>コンセプト設定:</strong> 「ONETEAM」という素晴らしい名前を体現する、「多職種連携」や「地域との繋がり」をサイト全体のメッセージとして一貫して伝えていきます。
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section id="market">
+  <div class="section-tag">📊 採用市場・競合</div>
+  <h2 class="section-title">川崎・横浜エリアの採用状況</h2>
+  <p class="section-lead">今、医療・介護職の求人はどこも多い状況です。だからこそ「うちで働きたい」と思ってもらえる情報発信が勝負を分けます。</p>
+  <div class="two-col" style="margin-bottom:40px;">
+    <div>
+      <div class="chart-wrap" style="margin-bottom:20px;">
+        <h3>職種別「求人の多さ」（求人倍率）</h3>
+        <div class="chart-container"><canvas id="barChartJobs"></canvas></div>
+        <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">※倍率が高いほど求職者に対して求人が多い状態＝積極的な情報発信が差別化の鍵になります</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💡</div>
+        <div class="card-title">求人倍率とは？</div>
+        <div class="card-body">1人の求職者に対して何件の求人があるかを示す数値です。看護師・PT・OTはいずれも全職種平均（1.15倍）を大きく上回っており、優秀な人材の確保には工夫が必要です。</div>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <h3>求職者がHPで最も気にすること</h3>
+      <div class="chart-container"><canvas id="doughnutChartNeeds"></canvas></div>
+    </div>
+  </div>
+  <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;">近隣ステーションの採用サイト、ここが参考になります</h3>
+  <div class="comp-list" id="competitor-list"></div>
+</section>
 
-        <section id="strategy" class="mb-20 scroll-mt-10">
-            <h2 class="text-3xl font-bold text-brand-900 mb-6 border-b-2 border-brand-500 pb-2 inline-block">5. リニューアル提言（優先度付き）</h2>
-            <p class="text-base-800 mb-8 leading-relaxed">
-                これまでの調査を統合し、ONETEAM訪問看護ステーションの魅力を最大限に届けるため、具体的なアクションプランをご提案します。
-            </p>
-            <div class="mb-10 bg-white p-6 rounded-xl shadow-sm border border-brand-100">
-                <h3 class="text-xl font-bold text-brand-900 mb-4 border-b pb-2">さらなる飛躍に向けたページ構成案（おすすめの優先度順）</h3>
-                <div class="space-y-4">
-                    <div class="flex items-start">
-                        <span class="bg-teal-100 text-teal-800 text-xs font-bold px-2 py-1 rounded mr-3 mt-1 min-w-[50px] text-center">推奨度 S</span>
-                        <div>
-                            <p class="font-bold">採用情報拡張（1日の流れ・教育体制・データで見るONETEAM）</p>
-                            <p class="text-sm text-gray-600">求職者に安心感と期待感を与える最重要ページです。数字（残業時間、有休消化率など）を可視化することで信頼度がアップします。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <span class="bg-teal-100 text-teal-800 text-xs font-bold px-2 py-1 rounded mr-3 mt-1 min-w-[50px] text-center">推奨度 S</span>
-                        <div>
-                            <p class="font-bold">スタッフインタビュー / 代表メッセージ</p>
-                            <p class="text-sm text-gray-600">「誰と働くか」「どんな想いで運営しているか」は、ステーションの独自性を伝える最も魅力的なコンテンツになります。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded mr-3 mt-1 min-w-[50px] text-center">推奨度 A</span>
-                        <div>
-                            <p class="font-bold">採用専用エントリーフォーム ＆ 追従CTA</p>
-                            <p class="text-sm text-gray-600">スマホ閲覧時に常に画面下部に「LINE応募」「WEB見学申込」ボタンを配置し、スムーズなアクションを促します。</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded mr-3 mt-1 min-w-[50px] text-center">推奨度 B</span>
-                        <div>
-                            <p class="font-bold">Instagramフィード連携 ＆ ブログ機能</p>
-                            <p class="text-sm text-gray-600">日々の活動の様子をInstagramで発信し、HPトップに自動表示させることで活気あるステーションの様子をリアルタイムで届けます。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="glass-panel p-6 rounded-xl mb-10 border-l-4 border-brand-500">
-                <h3 class="text-xl font-bold text-brand-900 mb-3">より柔軟で拡張性の高いCMS（システム）への移行</h3>
-                <p class="text-sm text-base-800 leading-relaxed mb-4">
-                    今後のさらなる成長や発信力強化を見据えた場合、SEO対策の柔軟性や日々の更新のしやすさを向上させる大きな余地があります。採用力強化の基盤として、以下の強みを持つCMSへの移行をおすすめします。
-                </p>
-                <ul class="list-disc pl-5 text-sm space-y-2 text-base-800">
-                    <li>内部SEO対策（見出し構造、メタタグ等の細かな設定）に柔軟に対応でき、検索エンジンからの評価を高めやすい。</li>
-                    <li>スマートフォンでの表示速度を最適化しやすく、ユーザーにストレスのない体験を提供できる。</li>
-                    <li>自社内で「スタッフブログ」や「お知らせ」を簡単に更新・追加でき、情報発信の頻度をスムーズに上げられる。</li>
-                </ul>
-            </div>
-            <div class="bg-brand-50 p-6 rounded-xl">
-                <h3 class="font-bold text-lg mb-2">求人媒体とのハイブリッド戦略で相乗効果を</h3>
-                <p class="text-sm leading-relaxed">
-                    自社HPの魅力を高めることで、各種求人媒体との相乗効果が期待できます。<br>
-                    <strong>【求人媒体で認知・基本条件確認】 → 【自社HPで理念共感・リアルな雰囲気の確認】 → 【自社HPから直接エントリー（または見学申込）】</strong><br>
-                    というスムーズな流れを設計することで、よりステーションにマッチした素晴らしい人材の採用に繋がります。
-                </p>
-            </div>
-        </section>
+<section id="seo">
+  <div class="section-tag">🌱 成長の可能性</div>
+  <h2 class="section-title">検索されている言葉から見えるチャンス</h2>
+  <p class="section-lead">「川崎 訪問看護」などのキーワードで毎月どのくらい検索されているかを調べました。このキーワードで上位表示されれば、自然にアクセスが増えます。</p>
+  <div class="two-col" style="margin-bottom:0;">
+    <div class="chart-wrap">
+      <h3>月に何回 Google で検索されているか（推計）</h3>
+      <div class="chart-container"><canvas id="seoChart"></canvas></div>
+    </div>
+    <div class="check-list">
+      <div class="check-item">
+        <h4>🔑 大きなキーワードより「細かいキーワード」を狙う</h4>
+        <p>「川崎 訪問看護」のような大きなキーワードに加え、「幸区 訪問リハビリ」「川崎 小児 訪問看護」のような具体的なキーワードを狙った記事を発信することで、必要としている方により確実にアプローチできます。</p>
+      </div>
+      <div class="check-item">
+        <h4>📸 写真と「人」の情報でブランドを伝える</h4>
+        <p>成功している訪問看護ステーションのサイトは、「病院っぽさ」より「温かみ・生活感・チームの笑顔」を前面に出しています。ONETEAMらしい世界観をビジュアルで表現することが大切です。</p>
+      </div>
+      <div class="check-item">
+        <h4>📝 ブログや事例記事を継続的に更新する</h4>
+        <p>「訪問看護師の1日」「PTがリハビリで大切にしていること」などの記事を定期的に発信することで、Googleからの評価が上がりアクセス数も増えます。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <footer class="mt-20 pt-10 border-t border-base-200 text-sm text-gray-500">
-            <h4 class="font-bold mb-2">参考データ・参照元</h4>
-            <ul class="list-disc pl-5 space-y-1">
-                <li>厚生労働省 神奈川労働局「職業別有効求人倍率」</li>
-                <li>各社求人ポータルサイト 訪問看護ステーション 採用動向調査レポート</li>
-                <li>キーワード検索ボリュームデータ (Google Keyword Planner 推計)</li>
-            </ul>
-            <p class="mt-6 text-center">&copy; 2026 Web Renewal Proposal Report.</p>
-        </footer>
+<section id="strategy">
+  <div class="section-tag">🚀 改善の提案</div>
+  <h2 class="section-title">具体的に何から始めるか</h2>
+  <p class="section-lead">優先度が高いものから順に並べています。まずは「S」から着手するだけでも大きな効果が期待できます。</p>
+  <div class="priority-list" style="margin-bottom:40px;">
+    <div class="priority-item">
+      <div class="priority-rank rank-s">S</div>
+      <div class="priority-content">
+        <h4>スタッフインタビュー ＆ 代表メッセージページを作る</h4>
+        <p>求職者が最も気にするのは「誰と働くか」です。代表の想いやスタッフそれぞれの声を掲載することで、ステーションへの共感と信頼が生まれます。写真1枚＋コメント形式でも十分効果的です。</p>
+      </div>
+    </div>
+    <div class="priority-item">
+      <div class="priority-rank rank-s">S</div>
+      <div class="priority-content">
+        <h4>「1日の流れ」「教育・研修体制」を採用ページに追加する</h4>
+        <p>「訪問看護は未経験だけど大丈夫かな？」という不安を解消するコンテンツです。入職後のイメージが持てると、応募のハードルがぐっと下がります。</p>
+      </div>
+    </div>
+    <div class="priority-item">
+      <div class="priority-rank rank-a">A</div>
+      <div class="priority-content">
+        <h4>応募ボタンをスマホ画面の下に常に表示する</h4>
+        <p>「応募したい」と思ったそのタイミングで、すぐに行動できる設計が大切です。スマホ下部に「LINEで応募」「見学を申し込む」ボタンを固定表示することで、応募率が向上します。</p>
+      </div>
+    </div>
+    <div class="priority-item">
+      <div class="priority-rank rank-a">A</div>
+      <div class="priority-content">
+        <h4>InstagramをHPのトップページと連動させる</h4>
+        <p>日々の活動の様子を投稿しているInstagramをHPに自動表示することで、更新のコストをかけずにリアルタイムの情報を届けられます。</p>
+      </div>
+    </div>
+    <div class="priority-item">
+      <div class="priority-rank rank-b">B</div>
+      <div class="priority-content">
+        <h4>Wixから更新しやすい仕組みに移行する</h4>
+        <p>現在のWixでも基本的な運用はできますが、ブログ記事の投稿・Google対策の細かい調整・スマホ表示の最適化を考えると、WordPressなどへの移行が長期的には有利です。</p>
+      </div>
+    </div>
+  </div>
 
-    </main>
+  <div class="flow" style="margin-bottom:32px;">
+    <div class="flow-step">
+      <div class="fs-icon">📱</div>
+      <div class="fs-label">Step 1</div>
+      <div class="fs-title">求人媒体で<br>ステーションを知る</div>
+    </div>
+    <div class="flow-step">
+      <div class="fs-icon">🌐</div>
+      <div class="fs-label">Step 2</div>
+      <div class="fs-title">自社HPで<br>雰囲気・理念に共感</div>
+    </div>
+    <div class="flow-step">
+      <div class="fs-icon">✉️</div>
+      <div class="fs-label">Step 3</div>
+      <div class="fs-title">HPから直接<br>応募・見学申込</div>
+    </div>
+  </div>
 
-    <script>
-        const competitorData = [
-            {
-                name: "Aステーション (川崎市幸区)",
-                points: ["1日の密着スケジュール動画あり", "給与テーブルの明確な提示", "教育担当者からのメッセージ"],
-                evaluation: "デザイン面での伸びしろはあるものの、求職者が知りたい「リアルな情報」を積極的に開示しており、採用力強化の良い参考になります。"
-            },
-            {
-                name: "B訪問看護 (川崎区 / 大手系列)",
-                points: ["福利厚生のわかりやすい図解", "キャリアパスごとの年収例", "スタイリッシュなデザイン"],
-                evaluation: "ブランド力と安心感を前面に押し出す見せ方が上手です。写真のクオリティが高く、信頼感の醸成に成功しています。"
-            },
-            {
-                name: "Cステーション (横浜市鶴見区)",
-                points: ["代表の熱い想いを伝える動画", "スタッフの座談会記事", "Instagramとのスムーズな連携"],
-                evaluation: "人間関係の良さやアットホームさを伝えることに特化しており、定着率の良さをうまくアピールできている素晴らしい事例です。"
-            }
-        ];
+  <div class="info-box">
+    <h3>📌 求人媒体との上手な使い方</h3>
+    <ul>
+      <li>マイナビ看護師・ナース人材バンクなどで<strong>「知ってもらう」</strong>きっかけを作る</li>
+      <li>自社HPで<strong>「もっと知りたい」「ここで働きたい」</strong>と思ってもらう</li>
+      <li>LINEやフォームで<strong>「気軽に問い合わせできる」</strong>導線を整える</li>
+      <li>この3ステップを整えることで、求人媒体への依存度を下げ、自社採用を強化できます</li>
+    </ul>
+  </div>
+</section>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            initNavigation();
-            initCharts();
-            initCompetitorAccordion();
-        });
+<footer>
+  <h4>参考データ</h4>
+  <ul>
+    <li>厚生労働省 神奈川労働局「職業別有効求人倍率」</li>
+    <li>各社求人ポータルサイト 訪問看護ステーション 採用動向調査</li>
+    <li>Google キーワードプランナー（月間検索数 推計）</li>
+  </ul>
+  <div class="copy">&copy; 2026 HP Renewal Proposal Report</div>
+</footer>
 
-        function initNavigation() {
-            const sections = document.querySelectorAll('section');
-            const navItems = document.querySelectorAll('.nav-item');
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    if (scrollY >= (section.offsetTop - 150)) current = section.getAttribute('id');
-                });
-                navItems.forEach(item => {
-                    item.classList.remove('nav-active');
-                    if (item.getAttribute('href').includes(current)) item.classList.add('nav-active');
-                });
-            });
-        }
+</main>
+</div>
 
-        function initCharts() {
-            Chart.defaults.font.family = "'Noto Sans JP', sans-serif";
-            Chart.defaults.color = '#57534e';
+<script>
+Chart.defaults.font.family="'Zen Kaku Gothic New',sans-serif";
+Chart.defaults.color='#6b6460';
 
-            new Chart(document.getElementById('radarChart'), {
-                type: 'radar',
-                data: {
-                    labels: ['SEO最適化度', 'UI/UXの魅力度', 'モバイル快適性', 'コンテンツ充実度', '採用導線のスムーズさ'],
-                    datasets: [
-                        { label: '現状のポテンシャル', data: [30, 40, 50, 20, 30], backgroundColor: 'rgba(234, 179, 8, 0.2)', borderColor: 'rgba(234, 179, 8, 1)', borderWidth: 2 },
-                        { label: 'リニューアル後(目標)', data: [90, 85, 95, 80, 90], backgroundColor: 'rgba(13, 148, 136, 0.2)', borderColor: 'rgba(13, 148, 136, 1)', borderWidth: 2 }
-                    ]
-                },
-                options: { responsive: true, maintainAspectRatio: false, scales: { r: { suggestedMin: 0, suggestedMax: 100 } } }
-            });
+new Chart(document.getElementById('radarChart'),{
+  type:'radar',
+  data:{
+    labels:['Google検索への強さ','見た目の魅力','スマホ対応','コンテンツの充実度','応募しやすさ'],
+    datasets:[
+      {label:'現状',data:[30,40,50,20,30],backgroundColor:'rgba(234,179,8,0.15)',borderColor:'#f5c842',borderWidth:2,pointBackgroundColor:'#f5c842'},
+      {label:'リニューアル後（目標）',data:[90,88,95,82,92],backgroundColor:'rgba(10,158,138,0.15)',borderColor:'#0a9e8a',borderWidth:2,pointBackgroundColor:'#0a9e8a'}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,scales:{r:{suggestedMin:0,suggestedMax:100,ticks:{stepSize:20,font:{size:10}},pointLabels:{font:{size:11}}}},plugins:{legend:{position:'bottom',labels:{font:{size:12},padding:16}}}}
+});
 
-            new Chart(document.getElementById('barChartJobs'), {
-                type: 'bar',
-                data: {
-                    labels: ['看護師', '理学療法士(PT)', '作業療法士(OT)', '全職業平均'],
-                    datasets: [{ label: '有効求人倍率 (倍)', data: [2.54, 3.12, 2.98, 1.15], backgroundColor: ['#0d9488', '#14b8a6', '#2dd4bf', '#d6d3d1'], borderRadius: 4 }]
-                },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
-            });
+new Chart(document.getElementById('barChartJobs'),{
+  type:'bar',
+  data:{
+    labels:['看護師','理学療法士(PT)','作業療法士(OT)','全職種 平均'],
+    datasets:[{label:'求人倍率（倍）',data:[2.54,3.12,2.98,1.15],backgroundColor:['#0a9e8a','#14b8a6','#2dd4bf','#d6d3d1'],borderRadius:8}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{font:{size:11}}},x:{ticks:{font:{size:11}}}}}
+});
 
-            new Chart(document.getElementById('doughnutChartNeeds'), {
-                type: 'doughnut',
-                data: {
-                    labels: ['職場の雰囲気・人間関係', '給与・待遇', 'ワークライフバランス', '教育体制', 'その他'],
-                    datasets: [{ data: [35, 25, 20, 15, 5], backgroundColor: ['#0d9488', '#f59e0b', '#3b82f6', '#ec4899', '#d6d3d1'], borderWidth: 0 }]
-                },
-                options: { responsive: true, maintainAspectRatio: false, cutout: '60%', plugins: { legend: { position: 'right' } } }
-            });
+new Chart(document.getElementById('doughnutChartNeeds'),{
+  type:'doughnut',
+  data:{
+    labels:['職場の雰囲気・人間関係','給与・待遇','ワークライフバランス','教育体制','その他'],
+    datasets:[{data:[35,25,20,15,5],backgroundColor:['#0a9e8a','#f5c842','#3b7de8','#e8813a','#d6d3d1'],borderWidth:0,hoverOffset:6}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{position:'right',labels:{font:{size:11},padding:12}}}}
+});
 
-            new Chart(document.getElementById('seoChart'), {
-                type: 'bar',
-                data: {
-                    labels: ['川崎 訪問看護', '幸区 訪問看護', '川崎 訪問リハビリ', '訪問看護 採用 川崎', '訪問看護 鹿島田'],
-                    datasets: [{ label: '推定月間検索数', data: [1200, 320, 450, 180, 90], backgroundColor: 'rgba(13, 148, 136, 0.8)', borderRadius: 4 }]
-                },
-                options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { beginAtZero: true } } }
-            });
-        }
+new Chart(document.getElementById('seoChart'),{
+  type:'bar',
+  data:{
+    labels:['川崎 訪問看護','川崎 訪問リハビリ','幸区 訪問看護','訪問看護 採用 川崎','訪問看護 鹿島田'],
+    datasets:[{label:'月間検索数（推計）',data:[1200,450,320,180,90],backgroundColor:'rgba(10,158,138,0.75)',borderRadius:6}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{font:{size:11}}},y:{ticks:{font:{size:11}}}}}
+});
 
-        function initCompetitorAccordion() {
-            const container = document.getElementById('competitor-list');
-            competitorData.forEach((comp, index) => {
-                container.insertAdjacentHTML('beforeend', `
-                    <div class="border border-base-200 rounded bg-white overflow-hidden">
-                        <button class="w-full px-5 py-4 text-left font-bold bg-base-50 hover:bg-base-100 flex justify-between items-center focus:outline-none" onclick="toggleAccordion(${index})">
-                            <span>🏥 ${comp.name}</span>
-                            <span class="text-xl" id="icon-${index}">+</span>
-                        </button>
-                        <div class="accordion-content bg-white" id="content-${index}">
-                            <div class="py-3">
-                                <p class="text-sm text-gray-700 mb-3"><strong>参考になるコンテンツ:</strong></p>
-                                <ul class="list-disc pl-5 text-sm mb-3 space-y-1">${comp.points.map(p => `<li>${p}</li>`).join('')}</ul>
-                                <p class="text-sm bg-teal-50 p-3 rounded border border-teal-100"><strong>分析コメント:</strong><br>${comp.evaluation}</p>
-                            </div>
-                        </div>
-                    </div>
-                `);
-            });
-        }
-
-        window.toggleAccordion = function(index) {
-            const content = document.getElementById(`content-${index}`);
-            const icon = document.getElementById(`icon-${index}`);
-            const isOpen = content.classList.contains('open');
-            document.querySelectorAll('.accordion-content').forEach(el => el.classList.remove('open'));
-            document.querySelectorAll('[id^="icon"]').forEach(el => el.textContent = '+');
-            if (!isOpen) { content.classList.add('open'); icon.textContent = '-'; }
-        };
-    </script>
+const comps=[
+  {name:'Aステーション（川崎市幸区）',tags:['1日の密着スケジュール動画','給与テーブルの明示','教育担当者からのメッセージ'],comment:'「リアルな情報」を積極的に開示しているのが強み。求職者の不安を先回りして解消している参考になる事例です。'},
+  {name:'B訪問看護（川崎区 / 大手系列）',tags:['福利厚生の図解','キャリアパス別の年収例','高クオリティな写真'],comment:'写真のクオリティが高く、見ているだけで「信頼できる」印象を与えます。ブランドの安心感の伝え方が上手です。'},
+  {name:'Cステーション（横浜市鶴見区）',tags:['代表メッセージ動画','スタッフ座談会記事','Instagramと連携'],comment:'人間関係の良さ・アットホームさを全面に出す構成。定着率の高さをうまくアピールできている好例です。'}
+];
+const list=document.getElementById('competitor-list');
+comps.forEach((c,i)=>{
+  list.innerHTML+=`<div class="comp-item"><div class="comp-header" onclick="toggleComp(${i})"><span>🏥 ${c.name}</span><span class="comp-toggle" id="ct${i}">＋</span></div><div class="comp-body" id="cb${i}"><div class="comp-tags">${c.tags.map(t=>`<span class="comp-tag">✓ ${t}</span>`).join('')}</div><div class="comp-comment">💬 ${c.comment}</div></div></div>`;
+});
+window.toggleComp=(i)=>{
+  const body=document.getElementById('cb'+i),icon=document.getElementById('ct'+i),isOpen=body.classList.contains('open');
+  document.querySelectorAll('.comp-body').forEach(el=>el.classList.remove('open'));
+  document.querySelectorAll('.comp-toggle').forEach(el=>el.textContent='＋');
+  if(!isOpen){body.classList.add('open');icon.textContent='－';}
+};
+const navItems=document.querySelectorAll('.nav-item');
+const sections=document.querySelectorAll('section');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(scrollY>=s.offsetTop-160)cur=s.id;});
+  navItems.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});
+});
+</script>
 </body>
 </html>
