@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -68,7 +67,7 @@ section+section{border-top:1px solid var(--warm2);}
 .card-body{font-size:13px;color:var(--muted);line-height:1.8;}
 
 /* SEO STATUS */
-.seo-status{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:36px;}
+.seo-status{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px;}
 .status-card{background:var(--white);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);}
 .status-card.bad{border-top:4px solid var(--red);}
 .status-card.good{border-top:4px solid var(--teal);}
@@ -140,28 +139,21 @@ section+section{border-top:1px solid var(--warm2);}
 .info-box ul{padding-left:16px;}
 .info-box ul li{font-size:13.5px;color:var(--muted);line-height:1.8;margin-bottom:5px;}
 
-/* AI TOOL */
-.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.ai-card{background:var(--white);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);}
-.ai-card.teal{border-top:4px solid var(--teal);}
-.ai-card.blue{border-top:4px solid var(--blue);}
-.ai-card h3{font-size:15px;font-weight:700;margin-bottom:6px;}
-.ai-card .ai-desc{font-size:12.5px;color:var(--muted);margin-bottom:16px;line-height:1.7;}
-.chip-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
-.chip{display:inline-flex;align-items:center;gap:6px;background:var(--warm);border:1px solid var(--warm2);padding:6px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:500;transition:all .15s;}
-.chip:hover{background:var(--teal-lt);border-color:var(--teal);}
-.chip input{accent-color:var(--teal);}
-.ai-select{width:100%;background:var(--warm);border:1px solid var(--warm2);color:var(--ink);padding:8px 12px;border-radius:8px;font-size:13px;font-family:inherit;margin-bottom:16px;outline:none;}
-.ai-select:focus{border-color:var(--teal);}
-.ai-btn{width:100%;padding:10px;border:none;border-radius:10px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .2s;}
-.ai-btn.teal{background:var(--teal);color:white;}
-.ai-btn.blue{background:var(--blue);color:white;}
-.ai-btn:hover{opacity:.88;}
-.ai-output{margin-top:14px;padding:14px;border-radius:10px;font-size:12.5px;line-height:1.8;display:none;}
-.ai-output.teal{background:var(--teal-lt);border:1px solid #a7f3d0;}
-.ai-output.blue{background:var(--blue-lt);border:1px solid #bfdbfe;}
-.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:white;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px;}
-@keyframes spin{to{transform:rotate(360deg);}}
+/* IMAGE WRAPPER */
+.image-wrapper {
+  background: var(--warm);
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 36px;
+}
+.image-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
 
 /* FOOTER */
 footer{background:var(--ink);color:rgba(255,255,255,.6);padding:36px 56px;font-size:12px;}
@@ -172,7 +164,7 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
 @media(max-width:900px){
   nav{display:none;}
   .hero,section,footer{padding:36px 20px;}
-  .two-col,.seo-status,.ai-grid{grid-template-columns:1fr;}
+  .two-col,.seo-status{grid-template-columns:1fr;}
   .flow{flex-direction:column;}
   .flow-step+.flow-step::before{content:'↓';left:50%;top:-12px;transform:translateX(-50%);}
 }
@@ -220,7 +212,7 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
     <div class="card green">
       <div class="card-icon">🔍</div>
       <div class="card-title">①Google検索での存在感を高める</div>
-      <div class="card-body">「幸区 訪問看護」3ページ目・「川崎市 訪問看護」はまだ伸びしろがある状態。コンテンツとサイト構成を整えることで、1ページ目を狙える十分なポテンシャルがあります。</div>
+      <div class="card-body">現在「幸区 訪問看護」などのエリアキーワードはまだ伸びしろがある状態。コンテンツとサイト構成を整えることで、上位表示を狙える余地が大きく残されています。</div>
     </div>
     <div class="card green">
       <div class="card-icon">🏡</div>
@@ -234,8 +226,8 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
     </div>
     <div class="card green">
       <div class="card-icon">📈</div>
-      <div class="card-title">④継続的に育つサイト基盤をつくる</div>
-      <div class="card-body">更新しやすいCMSへの移行と、ブログ・事例記事の継続発信により、時間をかけてGoogle評価が積み上がる「育つホームページ」を構築します。</div>
+      <div class="card-title">④将来に向けた拡張性の確保</div>
+      <div class="card-body">柔軟なCMSへ移行することで、将来的にSEOをさらに強化したくなった際にブログ等をすぐ開始できる「拡張性（将来の布石）」を持たせた基盤を構築します。</div>
     </div>
 
   <!-- 採用サイト補足 -->
@@ -253,36 +245,83 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
 <section id="seo-now">
   <div class="section-tag">📉 現状のSEO分析</div>
   <h2 class="section-title">今、Googleでどう見られているか</h2>
-  <p class="section-lead">現在のホームページのGoogle検索における立ち位置と、その原因を整理しました。</p>
+  <p class="section-lead">現在のホームページのGoogle検索における立ち位置と、その原因を整理しました。超ローカル（鹿島田）では強い一方で、少し広いエリアでの検索に課題があります。</p>
 
   <!-- 現状ステータス -->
   <div class="seo-status">
-    <div class="status-card bad">
-      <div class="status-label bad">⚠ 現在の検索順位</div>
-      <div class="status-kw bad">「幸区 訪問看護」→ 3ページ目</div>
-      <div class="status-desc">検索結果の1ページ目に表示されるユーザーが約9割を占めると言われています。3ページ目から1ページ目へ引き上げることで、アクセス数を大きく伸ばせる余地があります。</div>
+    <div class="status-card good">
+      <div class="status-label good">✨ 現在の検索順位 (超ローカル)</div>
+      <div class="status-kw good">「鹿島田 訪問看護」→ 2位</div>
+      <div class="status-desc">ステーション所在地である「鹿島田」では2位を獲得できています。地域密着の強みがすでにGoogleに評価されている証拠であり、素晴らしい実績です。</div>
     </div>
     <div class="status-card bad">
-      <div class="status-label bad">⚠ 現在の検索順位</div>
-      <div class="status-kw bad">「川崎市 訪問看護」→ 圏外</div>
-      <div class="status-desc">エリア最大のキーワードでは現状表示すらされていません。ページ数が少なくコンテンツ量が足りないため、Googleが「このエリアの専門サイト」と認識できていない状態です。</div>
+      <div class="status-label bad">⚠ 現在の検索順位 (広域エリア)</div>
+      <div class="status-kw bad">「幸区 / 川崎市」→ 11位以下</div>
+      <div class="status-desc">一方で、需要の大きい「幸区」や「川崎市」全体になると11位以下（2ページ目以降）に落ちてしまいます。ここの順位を引き上げることが今回の最大のミッションです。</div>
+    </div>
+  </div>
+
+  <!-- 画像表示エリア (HTML/CSSで画像を完全再現) -->
+  <div class="info-box" style="margin-bottom:36px; padding:24px;">
+    <h3 style="margin-bottom: 24px; text-align: center;">📊 検索順位チェック結果（調査時）</h3>
+    
+    <div style="border: 1px solid #e5e7eb; border-radius: 4px; overflow: hidden; max-width: 500px; margin: 0 auto; background: #fff; font-family: 'MS PGothic', 'Hiragino Kaku Gothic ProN', sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.05); line-height: 1.5;">
+      <div style="background: #ff3300; color: #fff; font-weight: bold; padding: 6px 10px; text-align: left; font-size: 16px;">
+        検索順位チェック
+      </div>
+      <div style="background: #f3f3f3; padding: 16px 20px; border-bottom: 1px solid #e5e7eb; font-size: 14px;">
+        <div style="display: flex; margin-bottom: 8px; align-items: center;"><span style="width: 60px; text-align: right; margin-right: 10px; color: #666;">URL</span><input type="text" value="https://www.oneteamhoukan.com/" style="flex: 1; padding: 4px; border: 1px solid #999; background: #fff;" readonly></div>
+        <div style="display: flex; margin-bottom: 8px; align-items: center;"><span style="width: 60px; text-align: right; margin-right: 10px; color: #666;">ワード1</span><input type="text" value="鹿島田 訪問看護" style="flex: 1; padding: 4px; border: 1px solid #999; background: #fff;" readonly></div>
+        <div style="display: flex; margin-bottom: 8px; align-items: center;"><span style="width: 60px; text-align: right; margin-right: 10px; color: #666;">ワード2</span><input type="text" value="幸区 訪問看護" style="flex: 1; padding: 4px; border: 1px solid #999; background: #fff;" readonly></div>
+        <div style="display: flex; margin-bottom: 12px; align-items: center;"><span style="width: 60px; text-align: right; margin-right: 10px; color: #666;">ワード3</span><input type="text" value="川崎市 訪問看護" style="flex: 1; padding: 4px; border: 1px solid #999; background: #fff;" readonly></div>
+        <div style="text-align: center;"><button style="padding: 4px 16px; background: #efefef; border: 1px solid #999; color: #000; cursor: default; font-size: 14px;">チェック</button></div>
+        <div style="color: #cc0000; text-align: center; margin-top: 12px; font-size: 14px;">※Googleの仕様変更により、順位をチェックできるのは10位まで<br>となりました</div>
+      </div>
+      <div style="padding: 16px 20px;">
+        <table style="width: 100%; border-collapse: collapse; text-align: center; font-size: 14px; margin-bottom: 12px; background: #fff;">
+          <thead>
+            <tr>
+              <th style="background: #808080; color: #fff; padding: 6px; border: 1px solid #ccc; font-weight: normal;">キーワード</th>
+              <th style="background: #3333cc; color: #fff; padding: 6px; border: 1px solid #ccc; font-weight: normal; width: 70px;">Google</th>
+              <th style="background: #cc3333; color: #fff; padding: 6px; border: 1px solid #ccc; font-weight: normal; width: 70px;">Yahoo!</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 6px; border: 1px solid #ccc; text-align: center; color: #333;">鹿島田 訪問看護</td>
+              <td style="padding: 6px; border: 1px solid #ccc;"><a href="#" style="color: blue; text-decoration: underline;" onclick="return false;">2位</a></td>
+              <td style="padding: 6px; border: 1px solid #ccc;"><a href="#" style="color: blue; text-decoration: underline;" onclick="return false;">2位</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 6px; border: 1px solid #ccc; text-align: center; color: #333;">幸区 訪問看護</td>
+              <td style="padding: 6px; border: 1px solid #ccc;"><a href="#" style="color: blue; text-decoration: underline;" onclick="return false;">11位以下</a></td>
+              <td style="padding: 6px; border: 1px solid #ccc;"><a href="#" style="color: blue; text-decoration: underline;" onclick="return false;">11位以下</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 6px; border: 1px solid #ccc; text-align: center; color: #333;">川崎市 訪問看護</td>
+              <td style="padding: 6px; border: 1px solid #ccc;"><a href="#" style="color: blue; text-decoration: underline;" onclick="return false;">11位以下</a></td>
+              <td style="padding: 6px; border: 1px solid #ccc;"><a href="#" style="color: blue; text-decoration: underline;" onclick="return false;">11位以下</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="font-size: 11px; color: #333; text-align: center; margin-top: 16px; margin-bottom: 8px; line-height: 1.6;">
+          ※Yahoo!の順位をチェックできるのは10位までとなっております<br><br>
+          ※環境や設定の違いにより、実際の検索順位とは異なる場合があります
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- なぜ低いのか -->
-  <h3 style="font-size:17px;font-weight:700;margin-bottom:16px;">なぜ順位が上がらないのか？　3つの主な理由</h3>
+  <h3 style="font-size:17px;font-weight:700;margin-bottom:16px;">なぜ広域キーワードで順位が上がらないのか？</h3>
   <div class="check-list" style="margin-bottom:36px;">
     <div class="check-item bad">
-      <h4>📄 <span class="badge badge-red">最大の原因</span> コンテンツを広げる伸びしろが豊富にある</h4>
-      <p>Googleは「専門性・権威性・信頼性」を重視します。エリア・疾患・サービスに関するページを段階的に増やすことで、「この地域の訪問看護に詳しいサイト」としてGoogleに評価される伸びしろが大いにあります。</p>
+      <h4>📄 <span class="badge badge-red">最大の原因</span> エリアや疾患の専門ページがない</h4>
+      <p>Googleは「専門性・網羅性」を重視します。現在の4ページ構成では「幸区」「川崎市全域」の患者様に対応できるという情報量が不足しています。エリアや提供サービスに関するページを拡充することで、Googleに正しく評価される伸びしろが大いにあります。</p>
     </div>
     <div class="check-item bad">
       <h4>🏗️ <span class="badge badge-red">構造的な課題</span> WixのSEO上の制約</h4>
-      <p>サイトのソースコードに「wix-thunderbolt」の記述が確認でき、現在Wixで構築されていることがわかります。Wixはページ表示速度・内部リンク構造・構造化データの設定において、WordPressなどと比較してGoogleが評価しにくい特性があります。同じコンテンツでもCMS（サイトの仕組み）の違いで順位に差が出るため、移行することでSEO上の伸びしろをさらに活かせます。</p>
-    </div>
-    <div class="check-item warn">
-      <h4>🔑 <span class="badge badge-orange">機会損失</span> 地域・疾患に特化したキーワードページがない</h4>
-      <p>「幸区 訪問看護 脳梗塞」「川崎 小児 訪問看護」「鹿島田 訪問リハビリ」など、具体的なニーズに応えるページが存在しないため、必要としている方に届いていません。</p>
+      <p>サイトのソースコードから現在Wixで構築されていることがわかります。Wixはページ表示速度や構造化データの設定において、WordPressなどと比較してGoogleが評価しにくい特性があります。CMS（サイトの仕組み）を移行することでSEO上の制約を解消できます。</p>
     </div>
   </div>
 
@@ -295,7 +334,7 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
     <div class="check-list">
       <div class="check-item">
         <h4>📊 ビッグキーワードとロングテールの使い分け</h4>
-        <p>「川崎市 訪問看護」（月1,200回）は競合が多く即効性が低いです。まず「幸区 訪問看護」「鹿島田 訪問リハビリ」など中規模・地域密着キーワードで確実に順位を取り、足場を固めます。</p>
+        <p>「川崎市 訪問看護」（月1,200回）は競合が多く即効性が低いです。現在11位以下の「幸区 訪問看護」などを確実に1ページ目へ引き上げ、足場を固めます。</p>
       </div>
       <div class="check-item">
         <h4>🎯 ケアマネ向けキーワードが特に重要</h4>
@@ -303,7 +342,7 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
       </div>
       <div class="check-item">
         <h4>🏆 6〜12ヶ月で1ページ目を目指す</h4>
-        <p>サイト構成の拡充・継続的なコンテンツ発信・CMS移行を組み合わせることで、中規模キーワードでの1ページ目表示は現実的な目標として見込めます。</p>
+        <p>サイト構成の拡充・CMS移行を組み合わせることで、幸区エリアでの1ページ目表示は現実的な目標として見込めます。</p>
       </div>
     </div>
   </div>
@@ -313,7 +352,7 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
 <section id="sitemap">
   <div class="section-tag">🗺️ サイト構成の提案</div>
   <h2 class="section-title">現在のサイトマップ → 提案するサイトマップ</h2>
-  <p class="section-lead">現在の構成をベースに、地域の方・ご家族・医療機関の方それぞれに必要な情報を届けるページを加えます。全10ページの構成で、Googleから「地域の訪問看護の専門サイト」として評価される土台を整えます。コラム機能はSEOをさらに伸ばすフェーズ2として位置づけます。</p>
+  <p class="section-lead">現在の構成をベースに、地域の方・ご家族・医療機関の方それぞれに必要な情報を届けるページを加えます。全10ページの構成で、Googleから「地域の訪問看護の専門サイト」として評価される土台を整えます。ブログ・コラム機能は今回のリニューアルには含めず、将来的にSEOをさらに伸ばすための「布石（フェーズ2）」として視野に入れた設計にします。</p>
 
   <div class="two-col" style="margin-bottom:36px;">
     <!-- 現在 -->
@@ -364,7 +403,7 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
         </ul>
       </div>
       <div style="margin-top:16px;padding:12px 14px;background:#fef9c3;border-radius:10px;font-size:12px;color:#854d0e;line-height:1.7;">
-        ＋ フェーズ2：<strong>コラム機能</strong>を追加することで、ブログ記事の蓄積によりSEO効果がさらに加速します。
+        ＋ 将来の布石（フェーズ2）：将来的に<strong>コラム機能</strong>を解放し、記事を蓄積していくことでSEO効果をさらに加速できる拡張性を持たせます。
       </div>
     </div>
   </div>
@@ -378,7 +417,7 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
     </div>
     <div class="check-item">
       <h4>📢 お知らせ ／ お知らせ一覧・詳細</h4>
-      <p>イベント・更新情報・季節の健康コラムなどを定期発信します。サイトが「生きている」印象を与え、Googleからの評価向上にも貢献します。</p>
+      <p>休業日やイベント情報などを発信します。サイトが「生きている」印象を与え、閲覧者の安心感に貢献します。</p>
     </div>
     <div class="check-item">
       <h4>👥 ご利用者様向け → 訪問看護サービスの流れ ／ 訪問看護の料金</h4>
@@ -388,9 +427,9 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
       <h4>🏥 医療機関・福祉施設の方へ（ケアマネ向け）</h4>
       <p>依頼獲得に直結する最重要ページの一つです。受け入れ可能な疾患・エリア・連絡フローをまとめることで、「この事業所に依頼しやすい」という印象を与えます。「川崎 訪問看護 ケアマネ」などのキーワードでの流入も期待できます。</p>
     </div>
-    <div class="check-item">
-      <h4>📝 コラム機能（フェーズ2）</h4>
-      <p>「在宅リハビリで改善した事例」「訪問看護とは何か」など、地域の方やケアマネに役立つ記事を継続発信します。記事が蓄積されるほどGoogleからの評価が高まり、中長期的に安定した検索流入をもたらす「育つ仕組み」です。</p>
+    <div class="check-item" style="border-left-color: #cbd5e1; background: #f8fafc;">
+      <h4 style="color: #475569;">📝 コラム機能（将来の布石 / フェーズ2）</h4>
+      <p style="color: #64748b;">今回のリニューアルでは日々の運用ハードルを考慮して実装を見送りますが、将来的に「在宅リハビリで改善した事例」などを発信したくなった際にすぐ始められるよう、システム（CMS）の仕組みだけは用意しておきます。</p>
     </div>
   </div>
 
@@ -436,18 +475,11 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
         <p>信頼感の醸成に直結するコンテンツです。代表の想い・チームの雰囲気を伝えることで、「ONETEAM」というブランドの輪郭がはっきりし、他ステーションとの差別化につながります。</p>
       </div>
     </div>
-    <div class="priority-item">
-      <div class="priority-rank rank-a">A</div>
+    <div class="priority-item" style="opacity: 0.9;">
+      <div class="priority-rank" style="background:#e5e7eb;color:#4b5563;font-size:10px;">布石</div>
       <div class="priority-content">
-        <h4>ブログ・コラムの継続発信（月2〜4本）</h4>
-        <p>「訪問看護とは」「在宅リハビリで改善した事例」など地域の方やケアマネに役立つ記事を継続的に発信。時間をかけてGoogleの評価が積み上がり、問い合わせの増加につながります。</p>
-      </div>
-    </div>
-    <div class="priority-item">
-      <div class="priority-rank rank-b">B</div>
-      <div class="priority-content">
-        <h4>Instagramとの連動・Googleビジネスプロフィールの最適化</h4>
-        <p>Instagram（@oneteam_houkan）の投稿をHPに自動表示し、活気ある日常を届けます。Googleビジネスプロフィール（地図表示）の情報を充実させることで、ローカル検索でも上位を狙えます。</p>
+        <h4 style="color: #4b5563;">【将来の布石】ブログ・コラム機能の土台作り</h4>
+        <p>現状はスタッフ様の運用リソースを考慮し「記事の更新」は行いませんが、将来的にSEOを加速させたくなった際にすぐ始められるよう、システム上（CMS）にブログの仕組みだけは構築しておきます。</p>
       </div>
     </div>
   </div>
@@ -464,9 +496,9 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
       <div class="fs-title">エリア・疾患<br>ページ作成</div>
     </div>
     <div class="flow-step">
-      <div class="fs-icon">✍️</div>
+      <div class="fs-icon">🤝</div>
       <div class="fs-label">Step 3</div>
-      <div class="fs-title">ブログ<br>継続発信</div>
+      <div class="fs-title">ケアマネ等<br>専用ページ設置</div>
     </div>
     <div class="flow-step">
       <div class="fs-icon">📈</div>
@@ -480,18 +512,16 @@ footer .copy{margin-top:24px;text-align:center;opacity:.45;}
     <ul>
       <li><strong>1〜3ヶ月：</strong>サイト構成・デザイン刷新完了。Googleへの再評価が始まる。</li>
       <li><strong>3〜6ヶ月：</strong>「幸区 訪問看護」などエリアキーワードで1〜2ページ目への浮上を目指す。</li>
-      <li><strong>6〜12ヶ月：</strong>ブログ記事の蓄積により複数キーワードで安定的に上位表示。ケアマネからの問い合わせ増加。</li>
+      <li><strong>6〜12ヶ月：</strong>新設した専門ページ群が評価され、複数キーワードで安定的に上位表示。ケアマネからの問い合わせ増加。</li>
     </ul>
   </div>
 </section>
-
 
 <footer>
   <h4>参考データ・参照元</h4>
   <ul>
     <li>Google検索順位：調査時点（2026年）における実測値</li>
     <li>Google キーワードプランナー（月間検索数 推計）</li>
-    <li>厚生労働省「訪問看護ステーション数・利用者数の推移」</li>
     <li>各種SEO調査ツール（検索順位データ）</li>
   </ul>
   <div class="copy">&copy; 2026 HP Renewal Proposal — ONETEAM訪問看護ステーション</div>
@@ -528,11 +558,11 @@ new Chart(document.getElementById('seoChart'),{
 new Chart(document.getElementById('pageImpactChart'),{
   type:'bar',
   data:{
-    labels:['対応エリアページ','対応疾患ページ','ブログ・コラム','ケアマネ向けページ','訪問リハビリページ','代表メッセージ'],
+    labels:['対応エリアページ','対応疾患ページ','ブログ(将来の布石)','ケアマネ向けページ','訪問リハビリページ','代表メッセージ'],
     datasets:[{
       label:'SEO貢献度',
-      data:[95,90,88,80,85,50],
-      backgroundColor:['#0a9e8a','#0a9e8a','#0a9e8a','#3b7de8','#14b8a6','#f5c842'],
+      data:[95,90,80,80,85,50],
+      backgroundColor:['#0a9e8a','#0a9e8a','#94a3b8','#3b7de8','#14b8a6','#f5c842'],
       borderRadius:6
     }]
   },
